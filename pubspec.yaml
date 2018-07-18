@@ -1,8 +1,8 @@
 name: ntp
 description: Fetch accurate time from NTP server
-version: 0.0.1
+version: 0.0.2
 author: Luka Knezic <luka.knezic@gmail.com>
-homepage: https://github.com/knezzz
+homepage: https://github.com/knezzz/ntp
 
 flutter:
   uses-material-design: false
@@ -16,4 +16,4 @@ dev_dependencies:
     sdk: flutter
 
 environment:
-  sdk: ">=1.13.0 <3.0.0"
+  sdk: ">=1.19.0 <3.0.0"
