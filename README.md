@@ -1,17 +1,37 @@
+[![pub package](https://img.shields.io/pub/v/ntp.svg)](https://pub.dartlang.org/packages/ntp)
+
 # ntp
 
-Get local clock offset in milliseconds from NTP services
+Plugin that allows you to get precise time from Network Time Protocol (NTP).
+Whole NTP protocol is implemented in dart.
 
-Add offset from getNtpTime
+By default lookup address for NTP is: pool.ntp.org
 
-example:
-
+### How it works
+Using int offset from getNtpTime()
+- default localTime is DateTime.now()
+- default lookUpAddress is 'pool.ntp.org'
+- default port is 123
 ```dart
-  NTP ntp = new NTP();
-  
   DateTime startDate = new DateTime().now().toLocal();
-  
-  int offset = await ntp.getNtpTime(localTime: startDate);
-  
-  print('NTP Align: ${startDate.add(new Duration(milliseconds: offset))}');
+  int offset = await NTP.getNtpTime(localTime: startDate);
+  print('NTP DateTime offset align: ${startDate.add(new Duration(milliseconds: offset))}');
+```
+
+Using DateTime from now
+```dart
+  DateTime startDate = await NTP.now();
+  print('NTP DateTime: ${startDate}');
+```
+
+### NTP Functions
+```dart
+  Future<int> getNtpTime({
+    String lookUpAddress: 'pool.ntp.org',
+    int port: 123,
+    DateTime localTime,
+  });
+```
+```dart
+  Future<DateTime> now();
 ```

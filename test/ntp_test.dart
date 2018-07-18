@@ -4,18 +4,27 @@ import 'package:ntp/ntp.dart';
 
 void main() {
   test('test NTP time', () async {
-    NTP ntp = new NTP();
-    expect(await ntp.getNtpTime(), isNonZero);
+    expect(await NTP.getNtpOffset(), isNonZero);
   });
 
   test('test NTP wrong start time', () async {
-    NTP ntp = new NTP();
-
-    DateTime startDate = new DateTime(2017);
-
-    int offset = await ntp.getNtpTime(localTime: startDate);
+    final DateTime startDate = new DateTime(2017);
+    final int offset = await NTP.getNtpOffset(localTime: startDate);
 
     print('First: $startDate');
     print('NTP Align: ${startDate.add(new Duration(milliseconds: offset))}');
+
+    expect(offset, isNonZero);
+  });
+
+  test('test NTP now', () async {
+    final DateTime phoneTime = DateTime.now();
+    final DateTime ntpTime = await NTP.now();
+    final int offset = await NTP.getNtpOffset();
+
+    print('Offset is: $offset');
+    print('Difference is: ${ntpTime.difference(phoneTime).inMilliseconds}');
+
+    expect(offset, lessThan(ntpTime.difference(phoneTime).inMilliseconds));
   });
 }

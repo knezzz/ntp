@@ -37,8 +37,9 @@ part of ntp;
 ///
 /// @author Adam Buckley
 /// Rewritten in dart by: Luka Knezic 2018
-class NTPMessage{
-  double timeToUtc = 2208988800.0;
+class NTPMessage {
+  final double timeToUtc = 2208988800.0;
+
   /// This is a two-bit code warning of an impending leap second to be
   /// inserted/deleted in the last minute of the current day.  It's values
   /// may be as follows:
@@ -139,7 +140,7 @@ class NTPMessage{
   /// OMEG     OMEGA radionavigation system
   /// GPS      Global Positioning Service
   /// GOES     Geostationary Orbit Environment Satellite
-  List<int> referenceIdentifier = [0, 0, 0, 0];
+  List<int> referenceIdentifier = <int>[0, 0, 0, 0];
 
   /// This is the time at which the local clock was last set or corrected, in
   /// seconds since 00:00 1-Jan-1900.
@@ -162,23 +163,26 @@ class NTPMessage{
   ///
   /// If byte array (raw NTP packet) is passed to constructor then the
   /// data is filled from a raw NTP packet.
-  NTPMessage([List<int> array]){
-    if(array != null) {
-      leapIndicator = ((array[0] >> 6) & 0x3);
-      version = ((array[0] >> 3) & 0x7);
-      mode = (array[0] & 0x7);
+  NTPMessage([List<int> array]) {
+    if (array != null) {
+      leapIndicator = array[0] >> 6 & 0x3;
+      version = array[0] >> 3 & 0x7;
+      mode = array[0] & 0x7;
       stratum = unsignedByteToShort(array[1]);
       pollInterval = array[2];
       precision = array[3];
 
-      rootDelay = ((array[4] * 256) + unsignedByteToShort(array[5]) +
-          (unsignedByteToShort(array[6]) / 256) +
-          (unsignedByteToShort(array[7]) / 65536)).toInt();
+      rootDelay = ((array[4] * 256) +
+              unsignedByteToShort(array[5]) +
+              (unsignedByteToShort(array[6]) / 256) +
+              (unsignedByteToShort(array[7]) / 65536))
+          .toInt();
 
       rootDispersion = ((unsignedByteToShort(array[8]) * 256) +
-          unsignedByteToShort(array[9]) +
-          (unsignedByteToShort(array[10]) / 256) +
-          (unsignedByteToShort(array[11]) / 65536)).toInt();
+              unsignedByteToShort(array[9]) +
+              (unsignedByteToShort(array[10]) / 256) +
+              (unsignedByteToShort(array[11]) / 65536))
+          .toInt();
 
       referenceIdentifier[0] = array[12];
       referenceIdentifier[1] = array[13];
@@ -189,47 +193,44 @@ class NTPMessage{
       originateTimestamp = decodeTimestamp(array, 24);
       receiveTimestamp = decodeTimestamp(array, 32);
       transmitTimestamp = decodeTimestamp(array, 40);
-    }else{
-      DateTime time = new DateTime.now().toLocal();
-
+    } else {
+      final DateTime time = new DateTime.now().toLocal();
       mode = 3;
       transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
     }
   }
 
-
   /// This method constructs the data bytes of a raw NTP packet.
-  List<int> toByteArray(){
-    List<int> rawNtp = new List<int>(48);
+  List<int> toByteArray() {
+    final List<int> rawNtp = new List<int>(48);
+
     /// All bytes are set to 0
     rawNtp.fillRange(0, 48, 0);
 
-    rawNtp[0] = (leapIndicator << 6 | version << 3 | mode);
+    rawNtp[0] = leapIndicator << 6 | version << 3 | mode;
     rawNtp[1] = stratum;
     rawNtp[2] = pollInterval;
     rawNtp[3] = precision;
 
     /// root delay is a signed 16.16-bit FP, in Java an int is 32-bits
-    int l = rootDelay * 65536;
-    rawNtp[4] = ((l >> 24) & 0xFF);
-    rawNtp[5] = ((l >> 16) & 0xFF);
-    rawNtp[6] = ((l >> 8) & 0xFF);
-    rawNtp[7] = (l & 0xFF);
-
+    final int l = rootDelay * 65536;
+    rawNtp[4] = l >> 24 & 0xFF;
+    rawNtp[5] = l >> 16 & 0xFF;
+    rawNtp[6] = l >> 8 & 0xFF;
+    rawNtp[7] = l & 0xFF;
 
     /// root dispersion is an unsigned 16.16-bit FP, in Java there are no
     /// unsigned primitive types, so we use a long which is 64-bits
-    int ul = rootDispersion * 65536;
-    rawNtp[8] = ((ul >> 24) & 0xFF);
-    rawNtp[9] = ((ul >> 16) & 0xFF);
-    rawNtp[10] = ((ul >> 8) & 0xFF);
-    rawNtp[11] = (ul & 0xFF);
+    final int ul = rootDispersion * 65536;
+    rawNtp[8] = ul >> 24 & 0xFF;
+    rawNtp[9] = ul >> 16 & 0xFF;
+    rawNtp[10] = ul >> 8 & 0xFF;
+    rawNtp[11] = ul & 0xFF;
 
     rawNtp[12] = referenceIdentifier[0];
     rawNtp[13] = referenceIdentifier[1];
     rawNtp[14] = referenceIdentifier[2];
     rawNtp[15] = referenceIdentifier[3];
-
 
     encodeTimestamp(rawNtp, 16, referenceTimestamp);
     encodeTimestamp(rawNtp, 24, originateTimestamp);
@@ -241,32 +242,32 @@ class NTPMessage{
 
   /// Converts an unsigned byte to a short.  By default, Java assumes that
   /// a byte is signed.
-  int unsignedByteToShort(int i){
-    if((i & 0x80) == 0x80) return (128 + (i & 0x7f));
-    else return i;
+  int unsignedByteToShort(int i) {
+    if ((i & 0x80) == 0x80)
+      return 128 + (i & 0x7f);
+    else
+      return i;
   }
 
   /// Will read 8 bytes of a message beginning at <code>pointer</code>
   /// and return it as a double, according to the NTP 64-bit timestamp
   /// format.
-  double decodeTimestamp(List<int> array, int pointer){
+  double decodeTimestamp(List<int> array, int pointer) {
     double r = 0.0;
 
-    for(int i = 0; i < 8; i++){
-      r += unsignedByteToShort(array[pointer + i]) * pow(2.0, ((3-i) * 8));
+    for (int i = 0; i < 8; i++) {
+      r += unsignedByteToShort(array[pointer + i]) * pow(2.0, (3 - i) * 8);
     }
 
     return r;
   }
 
   /// Encodes a timestamp in the specified position in the message
-  encodeTimestamp(List<int> array, int pointer, double timestamp){
+  void encodeTimestamp(List<int> array, int pointer, double timestamp) {
     /// Converts a double into a 64-bit fixed point
-    for(int i = 0; i < 8; i++){
-
-
+    for (int i = 0; i < 8; i++) {
       /// 2^24, 2^16, 2^8, .. 2^-32
-      double base = pow(2.0, ((3-i) * 8));
+      final double base = pow(2.0, (3 - i) * 8);
 
       /// Capture byte value
       array[pointer + i] = timestamp ~/ base;
@@ -282,56 +283,57 @@ class NTPMessage{
     array[7] = new Random().nextInt(255);
   }
 
-  toString(){
-    return 'Leap indicator: $leapIndicator\n' +
-        'Version: $version \n' +
-        'Mode: $mode\n' +
-        'Stratum: $stratum\n' +
-        'Poll: $pollInterval\n' +
-        'Precision: $precision\n' +
-        'Root delay: ${rootDelay * 1000.0} ms\n' +
-        'Root dispersion: ${rootDispersion * 1000.0}ms\n' +
-        'Reference identifier: ${referenceIdentifierToString(referenceIdentifier, stratum, version)}\n' +
-        'Reference timestamp: ${timestampToString(referenceTimestamp)}\n' +
-        'Originate timestamp: ${timestampToString(originateTimestamp)}\n' +
-        'Receive timestamp:   ${timestampToString(receiveTimestamp)}\n' +
+  @override
+  String toString() {
+    return 'Leap indicator: $leapIndicator\n'
+        'Version: $version \n'
+        'Mode: $mode\n'
+        'Stratum: $stratum\n'
+        'Poll: $pollInterval\n'
+        'Precision: $precision\n'
+        'Root delay: ${rootDelay * 1000.0} ms\n'
+        'Root dispersion: ${rootDispersion * 1000.0}ms\n'
+        'Reference identifier: ${referenceIdentifierToString(referenceIdentifier, stratum, version)}\n'
+        'Reference timestamp: ${timestampToString(referenceTimestamp)}\n'
+        'Originate timestamp: ${timestampToString(originateTimestamp)}\n'
+        'Receive timestamp:   ${timestampToString(receiveTimestamp)}\n'
         'Transmit timestamp:  ${timestampToString(transmitTimestamp)}';
   }
 
-  timestampToString(double timestamp){
-    if(timestamp == 0) return '0';
+  String timestampToString(double timestamp) {
+    if (timestamp == 0) return '0';
 
-    double utc = timestamp - (timeToUtc);
-    double ms = utc * 1000.0;
+    final double utc = timestamp - timeToUtc;
+    final double ms = utc * 1000.0;
 
     return new DateTime.fromMillisecondsSinceEpoch(ms.toInt()).toString();
   }
 
-  referenceIdentifierToString(List<int> ref, int stratum, int version){
-  // From the RFC 2030:
-  // In the case of NTP Version 3 or Version 4 stratum-0 (unspecified)
-  // or stratum-1 (primary) servers, this is a four-character ASCII
-  // string, left justified and zero padded to 32 bits.
-  if(stratum==0 || stratum==1){
-    return ref.toString();
-  }
+  String referenceIdentifierToString(List<int> ref, int stratum, int version) {
+    /// From the RFC 2030:
+    /// In the case of NTP Version 3 or Version 4 stratum-0 (unspecified)
+    /// or stratum-1 (primary) servers, this is a four-character ASCII
+    /// string, left justified and zero padded to 32 bits.
+    if (stratum == 0 || stratum == 1) {
+      return ref.toString();
+    }
 
-  // In NTP Version 3 secondary servers, this is the 32-bit IPv4
-  // address of the reference source.
-  else if(version==3){
-    return '${unsignedByteToShort(ref[0])}.${unsignedByteToShort(ref[1])}.'
-        '${unsignedByteToShort(ref[2])}.${unsignedByteToShort(ref[3])}';
-  }
+    /// In NTP Version 3 secondary servers, this is the 32-bit IPv4
+    /// address of the reference source.
+    else if (version == 3) {
+      return '${unsignedByteToShort(ref[0])}.${unsignedByteToShort(ref[1])}.'
+          '${unsignedByteToShort(ref[2])}.${unsignedByteToShort(ref[3])}';
+    }
 
-  // In NTP Version 4 secondary servers, this is the low order 32 bits
-  // of the latest transmit timestamp of the reference source.
-  else if(version==4){
-    return '${((unsignedByteToShort(ref[0]) / 256.0) +
-        (unsignedByteToShort(ref[1]) / 65536.0) +
-        (unsignedByteToShort(ref[2]) / 16777216.0) +
-        (unsignedByteToShort(ref[3]) / 4294967296.0))}';
-  }
+    /// In NTP Version 4 secondary servers, this is the low order 32 bits
+    /// of the latest transmit timestamp of the reference source.
+    else if (version == 4) {
+      return '${unsignedByteToShort(ref[0]) / 256.0 +
+        unsignedByteToShort(ref[1]) / 65536.0 +
+        unsignedByteToShort(ref[2]) / 16777216.0 +
+        unsignedByteToShort(ref[3]) / 4294967296.0}';
+    }
 
-  return '';
+    return '';
   }
 }
