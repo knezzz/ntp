@@ -1,3 +1,8 @@
+## [1.0.1] - 22.07.2018.
+
+- Added example
+- Updated README.md
+
 ## [1.0.0] - 18.07.2018.
 
 - Methods in NTP are now static.

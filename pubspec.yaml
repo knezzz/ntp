@@ -1,6 +1,6 @@
 name: ntp
 description: Fetch accurate time from NTP server
-version: 1.0.0
+version: 1.0.1
 author: Luka Knezic <luka.knezic@gmail.com>
 homepage: https://github.com/knezzz/ntp
 

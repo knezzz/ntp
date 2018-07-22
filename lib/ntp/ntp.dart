@@ -55,8 +55,6 @@ class NTP {
                 (_ntpMessage._transmitTimestamp - destinationTimestamp)) /
             2;
 
-    print('NTP Clock offset: $localClockOffset seconds');
-
     return (localClockOffset * 1000).toInt();
   }
 }
