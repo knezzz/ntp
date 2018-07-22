@@ -49,13 +49,13 @@ class NTPMessage {
   /// 1         last minute has 61 seconds
   /// 2         last minute has 59 seconds
   /// 3         alarm condition (clock not synchronized)
-  int leapIndicator = 0;
+  int _leapIndicator = 0;
 
   /// This value indicates the NTP/SNTP version number.  The version number
   /// is 3 for Version 3 (IPv4 only) and 4 for Version 4 (IPv4, IPv6 and OSI).
   /// If necessary to distinguish between IPv4, IPv6 and OSI, the
   /// encapsulating context must be inspected.
-  int version = 3;
+  int _version = 3;
 
   /// This value indicates the mode, with values defined as follows:
   /// Mode     Meaning
@@ -72,7 +72,7 @@ class NTPMessage {
   /// In unicast and anycast modes, the client sets this field to 3 (client)
   /// in the request and the server sets it to 4 (server) in the reply. In
   /// multicast mode, the server sets this field to 5 (broadcast).
-  int mode = 0;
+  int _mode = 0;
 
   /// This value indicates the stratum level of the local clock, with values
   /// defined as follows:
@@ -82,19 +82,19 @@ class NTPMessage {
   /// 1        primary reference (e.g., radio clock)
   /// 2-15     secondary reference (via NTP or SNTP)
   /// 16-255   reserved
-  int stratum = 0;
+  int _stratum = 0;
 
   /// This value indicates the maximum interval between successive messages,
   /// in seconds to the nearest power of two. The values that can appear in
   /// this field presently range from 4 (16 s) to 14 (16284 s); however, most
   /// applications use only the sub-range 6 (64 s) to 10 (1024 s).
-  int pollInterval = 0;
+  int _pollInterval = 0;
 
   /// This value indicates the precision of the local clock, in seconds to
   /// the nearest power of two.  The values that normally appear in this field
   /// range from -6 for mains-frequency clocks to -20 for microsecond clocks
   /// found in some workstations.
-  int precision = 0;
+  int _precision = 0;
 
   /// This value indicates the total roundtrip delay to the primary reference
   /// source, in seconds.  Note that this variable can take on both positive
@@ -102,12 +102,12 @@ class NTPMessage {
   /// offsets. The values that normally appear in this field range from
   /// negative values of a few milliseconds to positive values of several
   /// hundred milliseconds.
-  int rootDelay = 0;
+  int _rootDelay = 0;
 
   /// This value indicates the nominal error relative to the primary reference
   /// source, in seconds.  The values  that normally appear in this field
   /// range from 0 to several hundred milliseconds.
-  int rootDispersion = 0;
+  int _rootDispersion = 0;
 
   /// This is a 4-byte array identifying the particular reference source.
   /// In the case of NTP Version 3 or Version 4 stratum-0 (unspecified) or
@@ -140,23 +140,23 @@ class NTPMessage {
   /// OMEG     OMEGA radionavigation system
   /// GPS      Global Positioning Service
   /// GOES     Geostationary Orbit Environment Satellite
-  List<int> referenceIdentifier = <int>[0, 0, 0, 0];
+  final List<int> _referenceIdentifier = <int>[0, 0, 0, 0];
 
   /// This is the time at which the local clock was last set or corrected, in
   /// seconds since 00:00 1-Jan-1900.
-  double referenceTimestamp = 0.0;
+  double _referenceTimestamp = 0.0;
 
   /// This is the time at which the request departed the client for the
   /// server, in seconds since 00:00 1-Jan-1900.
-  double originateTimestamp = 0.0;
+  double _originateTimestamp = 0.0;
 
   /// This is the time at which the request arrived at the server, in seconds
   /// since 00:00 1-Jan-1900.
-  double receiveTimestamp = 0.0;
+  double _receiveTimestamp = 0.0;
 
   /// This is the time at which the reply departed the server for the client,
   /// in seconds since 00:00 1-Jan-1900.
-  double transmitTimestamp = 0.0;
+  double _transmitTimestamp = 0.0;
 
   /// Constructs a new NtpMessage in client -> server mode, and sets the
   /// transmit timestamp to the current time.
@@ -165,40 +165,45 @@ class NTPMessage {
   /// data is filled from a raw NTP packet.
   NTPMessage([List<int> array]) {
     if (array != null) {
-      leapIndicator = array[0] >> 6 & 0x3;
-      version = array[0] >> 3 & 0x7;
-      mode = array[0] & 0x7;
-      stratum = unsignedByteToShort(array[1]);
-      pollInterval = array[2];
-      precision = array[3];
+      _leapIndicator = array[0] >> 6 & 0x3;
+      _version = array[0] >> 3 & 0x7;
+      _mode = array[0] & 0x7;
+      _stratum = unsignedByteToShort(array[1]);
+      _pollInterval = array[2];
+      _precision = array[3];
 
-      rootDelay = ((array[4] * 256) +
+      _rootDelay = ((array[4] * 256) +
               unsignedByteToShort(array[5]) +
               (unsignedByteToShort(array[6]) / 256) +
               (unsignedByteToShort(array[7]) / 65536))
           .toInt();
 
-      rootDispersion = ((unsignedByteToShort(array[8]) * 256) +
+      _rootDispersion = ((unsignedByteToShort(array[8]) * 256) +
               unsignedByteToShort(array[9]) +
               (unsignedByteToShort(array[10]) / 256) +
               (unsignedByteToShort(array[11]) / 65536))
           .toInt();
 
-      referenceIdentifier[0] = array[12];
-      referenceIdentifier[1] = array[13];
-      referenceIdentifier[2] = array[14];
-      referenceIdentifier[3] = array[15];
+      _referenceIdentifier[0] = array[12];
+      _referenceIdentifier[1] = array[13];
+      _referenceIdentifier[2] = array[14];
+      _referenceIdentifier[3] = array[15];
 
-      referenceTimestamp = decodeTimestamp(array, 16);
-      originateTimestamp = decodeTimestamp(array, 24);
-      receiveTimestamp = decodeTimestamp(array, 32);
-      transmitTimestamp = decodeTimestamp(array, 40);
+      _referenceTimestamp = decodeTimestamp(array, 16);
+      _originateTimestamp = decodeTimestamp(array, 24);
+      _receiveTimestamp = decodeTimestamp(array, 32);
+      _transmitTimestamp = decodeTimestamp(array, 40);
     } else {
       final DateTime time = new DateTime.now().toLocal();
-      mode = 3;
-      transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
+      _mode = 3;
+      _transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
     }
   }
+
+  double get referenceTimestamp => _referenceTimestamp;
+  double get originateTimestamp => _originateTimestamp;
+  double get receiveTimestamp => _receiveTimestamp;
+  double get transmitTimestamp => _transmitTimestamp;
 
   /// This method constructs the data bytes of a raw NTP packet.
   List<int> toByteArray() {
@@ -207,13 +212,13 @@ class NTPMessage {
     /// All bytes are set to 0
     rawNtp.fillRange(0, 48, 0);
 
-    rawNtp[0] = leapIndicator << 6 | version << 3 | mode;
-    rawNtp[1] = stratum;
-    rawNtp[2] = pollInterval;
-    rawNtp[3] = precision;
+    rawNtp[0] = _leapIndicator << 6 | _version << 3 | _mode;
+    rawNtp[1] = _stratum;
+    rawNtp[2] = _pollInterval;
+    rawNtp[3] = _precision;
 
     /// root delay is a signed 16.16-bit FP, in Java an int is 32-bits
-    final int l = rootDelay * 65536;
+    final int l = _rootDelay * 65536;
     rawNtp[4] = l >> 24 & 0xFF;
     rawNtp[5] = l >> 16 & 0xFF;
     rawNtp[6] = l >> 8 & 0xFF;
@@ -221,21 +226,21 @@ class NTPMessage {
 
     /// root dispersion is an unsigned 16.16-bit FP, in Java there are no
     /// unsigned primitive types, so we use a long which is 64-bits
-    final int ul = rootDispersion * 65536;
+    final int ul = _rootDispersion * 65536;
     rawNtp[8] = ul >> 24 & 0xFF;
     rawNtp[9] = ul >> 16 & 0xFF;
     rawNtp[10] = ul >> 8 & 0xFF;
     rawNtp[11] = ul & 0xFF;
 
-    rawNtp[12] = referenceIdentifier[0];
-    rawNtp[13] = referenceIdentifier[1];
-    rawNtp[14] = referenceIdentifier[2];
-    rawNtp[15] = referenceIdentifier[3];
+    rawNtp[12] = _referenceIdentifier[0];
+    rawNtp[13] = _referenceIdentifier[1];
+    rawNtp[14] = _referenceIdentifier[2];
+    rawNtp[15] = _referenceIdentifier[3];
 
-    encodeTimestamp(rawNtp, 16, referenceTimestamp);
-    encodeTimestamp(rawNtp, 24, originateTimestamp);
-    encodeTimestamp(rawNtp, 32, receiveTimestamp);
-    encodeTimestamp(rawNtp, 40, transmitTimestamp);
+    encodeTimestamp(rawNtp, 16, _referenceTimestamp);
+    encodeTimestamp(rawNtp, 24, _originateTimestamp);
+    encodeTimestamp(rawNtp, 32, _receiveTimestamp);
+    encodeTimestamp(rawNtp, 40, _transmitTimestamp);
 
     return rawNtp;
   }
@@ -285,19 +290,19 @@ class NTPMessage {
 
   @override
   String toString() {
-    return 'Leap indicator: $leapIndicator\n'
-        'Version: $version \n'
-        'Mode: $mode\n'
-        'Stratum: $stratum\n'
-        'Poll: $pollInterval\n'
-        'Precision: $precision\n'
-        'Root delay: ${rootDelay * 1000.0} ms\n'
-        'Root dispersion: ${rootDispersion * 1000.0}ms\n'
-        'Reference identifier: ${referenceIdentifierToString(referenceIdentifier, stratum, version)}\n'
-        'Reference timestamp: ${timestampToString(referenceTimestamp)}\n'
-        'Originate timestamp: ${timestampToString(originateTimestamp)}\n'
-        'Receive timestamp:   ${timestampToString(receiveTimestamp)}\n'
-        'Transmit timestamp:  ${timestampToString(transmitTimestamp)}';
+    return 'Leap indicator: $_leapIndicator\n'
+        'Version: $_version \n'
+        'Mode: $_mode\n'
+        'Stratum: $_stratum\n'
+        'Poll: $_pollInterval\n'
+        'Precision: $_precision\n'
+        'Root delay: ${_rootDelay * 1000.0} ms\n'
+        'Root dispersion: ${_rootDispersion * 1000.0}ms\n'
+        'Reference identifier: ${referenceIdentifierToString(_referenceIdentifier, _stratum, _version)}\n'
+        'Reference timestamp: ${timestampToString(_referenceTimestamp)}\n'
+        'Originate timestamp: ${timestampToString(_originateTimestamp)}\n'
+        'Receive timestamp:   ${timestampToString(_receiveTimestamp)}\n'
+        'Transmit timestamp:  ${timestampToString(_transmitTimestamp)}';
   }
 
   String timestampToString(double timestamp) {

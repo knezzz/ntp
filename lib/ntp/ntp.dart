@@ -42,7 +42,7 @@ class NTP {
     final DateTime localTime = DateTime.now();
     final int offset = await getNtpOffset(localTime: localTime);
     return Future<DateTime>.value(
-        localTime.add(Duration(milliseconds: offset)));
+        DateTime.now().add(Duration(milliseconds: offset)));
   }
 
   /// Parse data from datagram socket.
@@ -51,8 +51,8 @@ class NTP {
     final double destinationTimestamp =
         (time.millisecondsSinceEpoch / 1000.0) + 2208988800.0;
     final double localClockOffset =
-        ((_ntpMessage.receiveTimestamp - _ntpMessage.originateTimestamp) +
-                (_ntpMessage.transmitTimestamp - destinationTimestamp)) /
+        ((_ntpMessage._receiveTimestamp - _ntpMessage._originateTimestamp) +
+                (_ntpMessage._transmitTimestamp - destinationTimestamp)) /
             2;
 
     print('NTP Clock offset: $localClockOffset seconds');
