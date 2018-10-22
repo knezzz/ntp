@@ -1,3 +1,7 @@
+## [1.0.1] - 22.10.2018.
+
+- Updated description and code cleanup
+
 ## [1.0.1] - 22.07.2018.
 
 - Added example

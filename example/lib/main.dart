@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:ntp/ntp.dart';
 
@@ -56,14 +54,12 @@ class _MyAppState extends State<MyApp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           new Text(title,
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .title
                   .copyWith(fontWeight: FontWeight.w500, fontSize: 16.0)),
           new Text(value,
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .title
                   .copyWith(fontWeight: FontWeight.w300, fontSize: 16.0)),

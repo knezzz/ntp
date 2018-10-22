@@ -16,8 +16,9 @@ class NTP {
     _ntpMessage.encodeTimestamp(buffer, 40,
         (time.millisecondsSinceEpoch / 1000.0) + _ntpMessage.timeToUtc);
     // Init datagram socket to anyIPv4 and to port 0
-    final RawDatagramSocket _datagramSocket = await RawDatagramSocket
-        .bind(InternetAddress.anyIPv4, 0, reuseAddress: true);
+    final RawDatagramSocket _datagramSocket = await RawDatagramSocket.bind(
+        InternetAddress.anyIPv4, 0,
+        reuseAddress: true);
     // Send buffer packet to the address from [addressArray] and port [port]
     _datagramSocket.send(buffer, addressArray.first, port);
     // Receive packet from socket

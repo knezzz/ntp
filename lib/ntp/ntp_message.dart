@@ -333,10 +333,7 @@ class NTPMessage {
     /// In NTP Version 4 secondary servers, this is the low order 32 bits
     /// of the latest transmit timestamp of the reference source.
     else if (version == 4) {
-      return '${unsignedByteToShort(ref[0]) / 256.0 +
-        unsignedByteToShort(ref[1]) / 65536.0 +
-        unsignedByteToShort(ref[2]) / 16777216.0 +
-        unsignedByteToShort(ref[3]) / 4294967296.0}';
+      return '${unsignedByteToShort(ref[0]) / 256.0 + unsignedByteToShort(ref[1]) / 65536.0 + unsignedByteToShort(ref[2]) / 16777216.0 + unsignedByteToShort(ref[3]) / 4294967296.0}';
     }
 
     return '';
