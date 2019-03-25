@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4b6e4be-7424-483e-809d-8f38cf359ac8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ntp/ntp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ntp/ntp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ntp/ntp_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ntp/ntp_message.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ntp_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/ntp_test.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,61 +16,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1015335451">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="dart" value="10" />
-          <entry key="md" value="1" />
-          <entry key="yaml" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Dart" value="10" />
-          <entry key="Markdown" value="1" />
-          <entry key="YAML" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Dart" value="13" />
-          <entry key="Markdown" value="43" />
-          <entry key="YAML" value="111" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.go.postfix.template.usages.trigger" />
-      <usages-collector id="statistics.spring.boot.run.usages" />
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dart" value="13" />
-          <entry key="md" value="43" />
-          <entry key="yaml" value="111" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.spring.boot.mvc.usages" />
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="32">
-                <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/test/ntp_test.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,22 +55,16 @@
         <option value="$PROJECT_DIR$/lib/ntp/ntp_message.dart" />
         <option value="$PROJECT_DIR$/example/main.dart" />
         <option value="$PROJECT_DIR$/example/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/ntp/ntp.dart" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/ntp/ntp.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/test/ntp_test.dart" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/test/ntp_test.dart" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -127,8 +76,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -139,13 +86,18 @@
             <path>
               <item name="ntp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ntp" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ntp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ntp" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ntp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ntp" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="ntp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ntp" type="b2602c69:ProjectViewProjectNode" />
@@ -156,11 +108,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553502848018" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -187,7 +142,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Flutter Test.tests in ntp_test.dart">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,8 +154,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ntp" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <configuration name="ntp" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
       <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Github" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Github" />
+      <option name="testFile" value="$PROJECT_DIR$/test/ntp_test.dart" />
       <method v="2" />
     </configuration>
     <configuration name="test NTP now" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
@@ -213,12 +173,14 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
       <listeners />
@@ -230,10 +192,12 @@
       <item itemvalue="Flutter.ntp" />
       <item itemvalue="Flutter Test.tests in ntp_test.dart" />
       <item itemvalue="Flutter Test.test NTP now" />
+      <item itemvalue="Flutter Test.Github" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Flutter Test.tests in ntp_test.dart" />
+        <item itemvalue="Flutter Test.Github" />
         <item itemvalue="Flutter Test.test NTP now" />
       </list>
     </recent_temporary>
@@ -256,46 +220,53 @@
       <workItem from="1532250932446" duration="3860000" />
       <workItem from="1532342280081" duration="230000" />
       <workItem from="1539432433820" duration="1679000" />
-      <workItem from="1540205267282" duration="353000" />
+      <workItem from="1540205267282" duration="447000" />
+      <workItem from="1542623703562" duration="241000" />
+      <workItem from="1552320610925" duration="370000" />
+      <workItem from="1553502529933" duration="358000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="tests_in_ntp_test_dart - 2018.06.08 at 13h 57m 53s.xml">
-      <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="tests_in_ntp_test_dart - 2018.06.08 at 13h 59m 55s.xml">
-      <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="test_NTP_now - 2018.07.18 at 12h 26m 44s.xml">
-      <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="test_NTP_now - 2018.07.18 at 12h 27m 40s.xml">
-      <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="test_NTP_now - 2018.07.18 at 12h 28m 51s.xml">
-      <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="test_NTP_now - 2018.07.18 at 12h 31m 14s.xml">
-      <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="test_NTP_now - 2018.07.18 at 12h 31m 35s.xml">
-      <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
-    </history-entry>
     <history-entry file="test_NTP_now - 2018.07.18 at 12h 32m 12s.xml">
       <configuration name="test NTP now" configurationId="FlutterTestConfigType" />
     </history-entry>
     <history-entry file="tests_in_ntp_test_dart - 2018.07.22 at 12h 48m 27s.xml">
       <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
     </history-entry>
+    <history-entry file="tests_in_ntp_test_dart - 2018.10.22 at 12h 51m 41s.xml">
+      <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_ntp_test_dart - 2019.03.11 at 17h 11m 33s.xml">
+      <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Github - 2019.03.11 at 17h 13m 11s.xml">
+      <configuration name="Github" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Github - 2019.03.11 at 17h 13m 41s.xml">
+      <configuration name="Github" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Github - 2019.03.11 at 17h 14m 24s.xml">
+      <configuration name="Github" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Github - 2019.03.11 at 17h 15m 06s.xml">
+      <configuration name="Github" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Github - 2019.03.25 at 09h 29m 35s.xml">
+      <configuration name="Github" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_ntp_test_dart - 2019.03.25 at 09h 33m 52s.xml">
+      <configuration name="tests in ntp_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12429000" />
+    <option name="totallyTimeSpent" value="13492000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1826411" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18743344" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -309,13 +280,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3188119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31782177" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Dart Analysis" order="11" weight="0.33128205" />
       <window_info anchor="bottom" id="Statistic" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32772276" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Flutter Performance" order="15" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -327,13 +300,11 @@
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="Maven" order="11" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/res/values/strings_en.arb" />
@@ -376,13 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -390,45 +354,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ntp.dart">
+    <entry file="file://$USER_HOME$/flutter/packages/flutter_test/lib/src/widget_tester.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" lean-forward="true" selection-end-line="10" />
-          <folding>
-            <element signature="e#14#34#0" expanded="true" />
-            <element signature="e#74#94#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="226">
+          <caret line="162" column="5" selection-start-line="162" selection-start-column="5" selection-end-line="162" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ntp_test.dart">
+    <entry file="file://$PROJECT_DIR$/lib/ntp.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="112">
+          <caret line="10" lean-forward="true" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ntp/ntp.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        <state relative-caret-position="391">
+          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ntp.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="32">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="32">
-            <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+          <first_editor>
+            <caret column="23" selection-start-column="23" selection-end-column="23" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ntp_test.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

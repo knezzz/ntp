@@ -1,4 +1,8 @@
-## [1.0.1] - 22.10.2018.
+## [1.0.3] - 25.03.2019.
+
+- Fix returning future, may fix #1
+
+## [1.0.2] - 22.10.2018.
 
 - Updated description and code cleanup
 

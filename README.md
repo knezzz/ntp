@@ -3,11 +3,11 @@
 # ntp
 
 Plugin that allows you to get precise time from Network Time Protocol (NTP).
-Whole NTP protocol is implemented in dart.
+It implements whole NTP protocol in dart.
 
-This is useful for time-based events since DateTime.now() returns time of the device.
+This is useful for time-based events since DateTime.now() returns the time of the device.
 Users sometimes change their internal clock and using DateTime.now() can give
-really wrong result. You can just get clock offset [NTP.getNtpTime] and apply it manually
+wrong result. You can just get clock offset [NTP.getNtpTime] and apply it manually
 to DateTime.now() object when needed (just add offset as milliseconds duration), or you can get 
 already formatted [DateTime] object from [NTP.now]. 
 
