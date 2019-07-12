@@ -8,7 +8,7 @@ void main() {
   });
 
   test('test NTP wrong start time', () async {
-    final DateTime startDate = new DateTime(2017);
+    final DateTime startDate = new DateTime(2019);
     final int offset = await NTP.getNtpOffset(localTime: startDate);
 
     print('First: $startDate');
