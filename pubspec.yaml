@@ -4,16 +4,8 @@ version: 1.0.3
 author: Luka Knezic <luka.knezic@gmail.com>
 homepage: https://github.com/knezzz/ntp
 
-flutter:
-  uses-material-design: false
-
-dependencies:
-  flutter:
-    sdk: flutter
-
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  test: any
 
 environment:
   sdk: ">=1.19.0 <3.0.0"
