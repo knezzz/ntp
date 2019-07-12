@@ -38,8 +38,7 @@ class NTP {
   static Future<DateTime> now() async {
     final DateTime localTime = DateTime.now();
     final int offset = await getNtpOffset(localTime: localTime);
-    return Future<DateTime>.value(
-        DateTime.now().add(Duration(milliseconds: offset)));
+    return DateTime.now().add(Duration(milliseconds: offset));
   }
 
   /// Parse data from datagram socket.
