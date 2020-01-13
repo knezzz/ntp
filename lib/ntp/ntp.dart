@@ -6,8 +6,8 @@ class NTP {
       int port = 123,
       DateTime localTime}) async {
 
-    final DateTime time = localTime ?? new DateTime.now();
-    final NTPMessage _ntpMessage = new NTPMessage();
+    final DateTime time = localTime ?? DateTime.now();
+    final NTPMessage _ntpMessage = NTPMessage();
 
     final List<InternetAddress> addressArray = await InternetAddress.lookup(lookUpAddress);
     final List<int> buffer = _ntpMessage.toByteArray();
@@ -28,7 +28,7 @@ class NTP {
       return packet != null;
     });
 
-    if (packet == null) return new Future<int>.error('Error: Packet is empty!');
+    if (packet == null) return Future<int>.error('Error: Packet is empty!');
 
     final int offset = _parseData(packet.data, time);
     return offset;
@@ -43,7 +43,7 @@ class NTP {
 
   /// Parse data from datagram socket.
   static int _parseData(List<int> data, DateTime time) {
-    final NTPMessage _ntpMessage = new NTPMessage(data);
+    final NTPMessage _ntpMessage = NTPMessage(data);
     final double destinationTimestamp = (time.millisecondsSinceEpoch / 1000.0) + 2208988800.0;
     final double localClockOffset = ((_ntpMessage._receiveTimestamp - _ntpMessage._originateTimestamp) + (_ntpMessage._transmitTimestamp - destinationTimestamp)) / 2;
 

@@ -1,3 +1,12 @@
+## [1.0.5] - 13.01.2019.
+
+- Move test to example (since it uses Flutter dependency)
+- Update package
+
+## [1.0.4] - 12.07.2019.
+
+- Fix now() function
+
 ## [1.0.3] - 25.03.2019.
 
 - Fix returning future, may fix #1

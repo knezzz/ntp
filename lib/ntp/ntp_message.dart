@@ -158,7 +158,7 @@ class NTPMessage {
   /// in seconds since 00:00 1-Jan-1900.
   double _transmitTimestamp = 0.0;
 
-  /// Constructs a new NtpMessage in client -> server mode, and sets the
+  /// Constructs a NtpMessage in client -> server mode, and sets the
   /// transmit timestamp to the current time.
   ///
   /// If byte array (raw NTP packet) is passed to constructor then the
@@ -194,7 +194,7 @@ class NTPMessage {
       _receiveTimestamp = decodeTimestamp(array, 32);
       _transmitTimestamp = decodeTimestamp(array, 40);
     } else {
-      final DateTime time = new DateTime.now().toLocal();
+      final DateTime time = DateTime.now().toLocal();
       _mode = 3;
       _transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
     }
@@ -207,7 +207,7 @@ class NTPMessage {
 
   /// This method constructs the data bytes of a raw NTP packet.
   List<int> toByteArray() {
-    final List<int> rawNtp = new List<int>(48);
+    final List<int> rawNtp = List<int>(48);
 
     /// All bytes are set to 0
     rawNtp.fillRange(0, 48, 0);
@@ -285,7 +285,7 @@ class NTPMessage {
     /// low order bits of the timestamp with a random, unbiased
     /// bit-string, both to avoid systematic round-off errors and as
     /// a means of loop detection and replay detection.
-    array[7] = new Random().nextInt(255);
+    array[7] = Random().nextInt(255);
   }
 
   @override
@@ -311,7 +311,7 @@ class NTPMessage {
     final double utc = timestamp - timeToUtc;
     final double ms = utc * 1000.0;
 
-    return new DateTime.fromMillisecondsSinceEpoch(ms.toInt()).toString();
+    return DateTime.fromMillisecondsSinceEpoch(ms.toInt()).toString();
   }
 
   String referenceIdentifierToString(List<int> ref, int stratum, int version) {
