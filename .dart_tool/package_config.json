@@ -299,10 +299,10 @@
       "name": "ntp",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "1.19"
+      "languageVersion": "2.6"
     }
   ],
-  "generated": "2020-01-13T11:51:26.637464Z",
+  "generated": "2020-02-03T09:58:42.471736Z",
   "generator": "pub",
-  "generatorVersion": "2.8.0-dev.0.0.flutter-395daaa3ec"
+  "generatorVersion": "2.8.0-dev.5.0.flutter-fc3af737c7"
 }

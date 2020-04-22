@@ -37,7 +37,49 @@ part of ntp;
 ///
 /// @author Adam Buckley
 /// Rewritten in dart by: Luka Knezic 2018
-class NTPMessage {
+class _NTPMessage {
+  /// Constructs a NtpMessage in client -> server mode, and sets the
+  /// transmit timestamp to the current time.
+  ///
+  /// If byte array (raw NTP packet) is passed to constructor then the
+  /// data is filled from a raw NTP packet.
+  _NTPMessage([List<int> array]) {
+    if (array != null) {
+      _leapIndicator = array[0] >> 6 & 0x3;
+      _version = array[0] >> 3 & 0x7;
+      _mode = array[0] & 0x7;
+      _stratum = unsignedByteToShort(array[1]);
+      _pollInterval = array[2];
+      _precision = array[3];
+
+      _rootDelay = ((array[4] * 256) +
+              unsignedByteToShort(array[5]) +
+              (unsignedByteToShort(array[6]) / 256) +
+              (unsignedByteToShort(array[7]) / 65536))
+          .toInt();
+
+      _rootDispersion = ((unsignedByteToShort(array[8]) * 256) +
+              unsignedByteToShort(array[9]) +
+              (unsignedByteToShort(array[10]) / 256) +
+              (unsignedByteToShort(array[11]) / 65536))
+          .toInt();
+
+      _referenceIdentifier[0] = array[12];
+      _referenceIdentifier[1] = array[13];
+      _referenceIdentifier[2] = array[14];
+      _referenceIdentifier[3] = array[15];
+
+      _referenceTimestamp = decodeTimestamp(array, 16);
+      _originateTimestamp = decodeTimestamp(array, 24);
+      _receiveTimestamp = decodeTimestamp(array, 32);
+      _transmitTimestamp = decodeTimestamp(array, 40);
+    } else {
+      final DateTime time = DateTime.now().toLocal();
+      _mode = 3;
+      _transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
+    }
+  }
+
   final double timeToUtc = 2208988800.0;
 
   /// This is a two-bit code warning of an impending leap second to be
@@ -157,48 +199,6 @@ class NTPMessage {
   /// This is the time at which the reply departed the server for the client,
   /// in seconds since 00:00 1-Jan-1900.
   double _transmitTimestamp = 0.0;
-
-  /// Constructs a NtpMessage in client -> server mode, and sets the
-  /// transmit timestamp to the current time.
-  ///
-  /// If byte array (raw NTP packet) is passed to constructor then the
-  /// data is filled from a raw NTP packet.
-  NTPMessage([List<int> array]) {
-    if (array != null) {
-      _leapIndicator = array[0] >> 6 & 0x3;
-      _version = array[0] >> 3 & 0x7;
-      _mode = array[0] & 0x7;
-      _stratum = unsignedByteToShort(array[1]);
-      _pollInterval = array[2];
-      _precision = array[3];
-
-      _rootDelay = ((array[4] * 256) +
-              unsignedByteToShort(array[5]) +
-              (unsignedByteToShort(array[6]) / 256) +
-              (unsignedByteToShort(array[7]) / 65536))
-          .toInt();
-
-      _rootDispersion = ((unsignedByteToShort(array[8]) * 256) +
-              unsignedByteToShort(array[9]) +
-              (unsignedByteToShort(array[10]) / 256) +
-              (unsignedByteToShort(array[11]) / 65536))
-          .toInt();
-
-      _referenceIdentifier[0] = array[12];
-      _referenceIdentifier[1] = array[13];
-      _referenceIdentifier[2] = array[14];
-      _referenceIdentifier[3] = array[15];
-
-      _referenceTimestamp = decodeTimestamp(array, 16);
-      _originateTimestamp = decodeTimestamp(array, 24);
-      _receiveTimestamp = decodeTimestamp(array, 32);
-      _transmitTimestamp = decodeTimestamp(array, 40);
-    } else {
-      final DateTime time = DateTime.now().toLocal();
-      _mode = 3;
-      _transmitTimestamp = (time.millisecondsSinceEpoch / 1000.0) + timeToUtc;
-    }
-  }
 
   double get referenceTimestamp => _referenceTimestamp;
   double get originateTimestamp => _originateTimestamp;

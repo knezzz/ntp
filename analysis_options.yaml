@@ -20,6 +20,8 @@
 # in sync with this file.
 
 analyzer:
+  enable-experiment:
+    - extension-methods
   strong-mode:
     implicit-dynamic: false
   errors:
