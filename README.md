@@ -1,6 +1,7 @@
 [![pub package](https://img.shields.io/pub/v/ntp.svg)](https://pub.dartlang.org/packages/ntp)
+[![CodeFactor](https://www.codefactor.io/repository/github/knezzz/ntp/badge)](https://www.codefactor.io/repository/github/knezzz/ntp)
 
-# ntp
+# NTP
 
 Plugin that allows you to get precise time from Network Time Protocol (NTP).
 It implements whole NTP protocol in dart.
