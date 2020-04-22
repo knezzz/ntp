@@ -1,3 +1,7 @@
+## [1.0.6] - 13.01.2019.
+
+- Fix [Issue #13](https://github.com/knezzz/ntp/issues/13)
+
 ## [1.0.5] - 13.01.2019.
 
 - Move test to example (since it uses Flutter dependency)

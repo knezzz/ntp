@@ -4,7 +4,7 @@ class NTP {
   /// Return NTP delay in milliseconds
   static Future<int> getNtpOffset({String lookUpAddress = 'pool.ntp.org', int port = 123, DateTime localTime}) async {
     final DateTime time = localTime ?? DateTime.now();
-    final NTPMessage _ntpMessage = NTPMessage();
+    final _NTPMessage _ntpMessage = _NTPMessage();
 
     final List<InternetAddress> addressArray = await InternetAddress.lookup(lookUpAddress);
     final List<int> buffer = _ntpMessage.toByteArray();
@@ -47,7 +47,7 @@ class NTP {
 
   /// Parse data from datagram socket.
   static int _parseData(List<int> data, DateTime time) {
-    final NTPMessage _ntpMessage = NTPMessage(data);
+    final _NTPMessage _ntpMessage = _NTPMessage(data);
     final double destinationTimestamp = (time.millisecondsSinceEpoch / 1000.0) + 2208988800.0;
     final double localClockOffset = ((_ntpMessage._receiveTimestamp - _ntpMessage._originateTimestamp) +
             (_ntpMessage._transmitTimestamp - destinationTimestamp)) /
