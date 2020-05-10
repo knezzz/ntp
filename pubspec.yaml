@@ -1,8 +1,10 @@
 name: ntp
 description: Fetch accurate time or current DateTime object from (NTP) Network Time Protocol server.
-version: 1.0.6
-author: Luka Knezic <luka.knezic@gmail.com>
+version: 1.0.7
 homepage: https://github.com/knezzz/ntp
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  universal_io: ^1.0.1

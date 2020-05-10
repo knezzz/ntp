@@ -1,3 +1,8 @@
+## [1.0.7] - 10.05.2020.
+
+- Is now supported on Flutter Web
+- Fix [Issue #15](https://github.com/knezzz/ntp/issues/15)
+
 ## [1.0.6] - 13.01.2019.
 
 - Fix [Issue #13](https://github.com/knezzz/ntp/issues/13)
