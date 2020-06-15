@@ -3,16 +3,17 @@ part of ntp;
 class NTP {
   /// Return NTP delay in milliseconds
   static Future<int> getNtpOffset({String lookUpAddress = 'pool.ntp.org', int port = 123, DateTime localTime}) async {
-    final DateTime time = localTime ?? DateTime.now();
-    final _NTPMessage _ntpMessage = _NTPMessage();
-
     final List<InternetAddress> addressArray = await InternetAddress.lookup(lookUpAddress);
-    final List<int> buffer = _ntpMessage.toByteArray();
 
-    _ntpMessage.encodeTimestamp(buffer, 40, (time.millisecondsSinceEpoch / 1000.0) + _ntpMessage.timeToUtc);
     // Init datagram socket to anyIPv4 and to port 0
     final RawDatagramSocket _datagramSocket =
         await RawDatagramSocket.bind(InternetAddress.anyIPv4, 0, reuseAddress: true);
+
+    final _NTPMessage _ntpMessage = _NTPMessage();
+    final List<int> buffer = _ntpMessage.toByteArray();
+    final DateTime time = localTime ?? DateTime.now();
+    _ntpMessage.encodeTimestamp(buffer, 40, (time.millisecondsSinceEpoch / 1000.0) + _ntpMessage.timeToUtc);
+
     // Send buffer packet to the address from [addressArray] and port [port]
     _datagramSocket.send(buffer, addressArray.first, port);
     // Receive packet from socket
