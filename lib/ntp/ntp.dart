@@ -5,9 +5,14 @@ class NTP {
   static Future<int> getNtpOffset({String lookUpAddress = 'pool.ntp.org', int port = 123, DateTime localTime}) async {
     final List<InternetAddress> addressArray = await InternetAddress.lookup(lookUpAddress);
 
+    InternetAddress clientAddress = InternetAddress.anyIPv4;
+    if (addressArray.first.type == InternetAddressType.IPv6) {
+      clientAddress = InternetAddress.anyIPv6;
+    }
+
     // Init datagram socket to anyIPv4 and to port 0
     final RawDatagramSocket _datagramSocket =
-        await RawDatagramSocket.bind(InternetAddress.anyIPv4, 0, reuseAddress: true);
+        await RawDatagramSocket.bind(clientAddress, 0, reuseAddress: true);
 
     final _NTPMessage _ntpMessage = _NTPMessage();
     final List<int> buffer = _ntpMessage.toByteArray();
