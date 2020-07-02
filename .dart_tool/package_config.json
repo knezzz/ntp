@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "meta",
-      "rootUri": "file:///Users/snoopy/.pub-cache/hosted/pub.dartlang.org/meta-1.1.6",
+      "rootUri": "file:///Users/snoopy/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8",
       "packageUri": "lib/",
       "languageVersion": "1.12"
     },
@@ -26,7 +26,7 @@
       "languageVersion": "2.6"
     }
   ],
-  "generated": "2020-05-10T16:59:15.133933Z",
+  "generated": "2020-07-02T12:19:40.268178Z",
   "generator": "pub",
-  "generatorVersion": "2.9.0-5.0.dev.flutter-4da5b40fb6"
+  "generatorVersion": "2.8.4"
 }
