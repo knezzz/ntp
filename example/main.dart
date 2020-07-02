@@ -1,6 +1,6 @@
 import 'package:ntp/ntp.dart';
 
-void main() async {
+Future<void> main() async {
   DateTime _myTime;
   DateTime _ntpTime;
 

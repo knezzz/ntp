@@ -1,7 +1,7 @@
-## [1.0.7] - 10.05.2020.
+## [1.0.7] - 02.07.2020.
 
-- Is now supported on Flutter Web
-- Fix [Issue #15](https://github.com/knezzz/ntp/issues/15)
+- Support for IPv6 and IPv4 addresses
+- Fix timing on first getNtpOffset call
 
 ## [1.0.6] - 13.01.2019.
 

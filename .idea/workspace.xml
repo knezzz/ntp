@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4b6e4be-7424-483e-809d-8f38cf359ac8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/ntp/ntp_extension.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_options.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ntp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ntp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="c4b6e4be-7424-483e-809d-8f38cf359ac8" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,29 +194,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="500" height="445" key="SwitcherDM" timestamp="1580906935707">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1593692376240">
+      <screen x="2560" y="-711" width="1440" height="2560" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/1920.0.1920.1200/0.0.1920.1200@1920.0.1920.1200" timestamp="1580906935707" />
-    <state x="2545" y="271" width="670" height="676" key="search.everywhere.popup" timestamp="1580722058501">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="500" height="445" key="SwitcherDM/2560.-711.1440.2560/0.0.2560.1440@2560.-711.1440.2560" timestamp="1593692376240" />
+    <state x="2945" y="-100" width="670" height="676" key="search.everywhere.popup" timestamp="1593692382267">
+      <screen x="2560" y="-711" width="1440" height="2560" />
     </state>
-    <state x="2545" y="271" width="670" height="676" key="search.everywhere.popup/1920.0.1920.1200/0.0.1920.1200@1920.0.1920.1200" timestamp="1580722058501" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <state x="2945" y="-100" width="670" height="676" key="search.everywhere.popup/2560.-711.1440.2560/0.0.2560.1440@2560.-711.1440.2560" timestamp="1593692382267" />
   </component>
 </project>

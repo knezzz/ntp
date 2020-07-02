@@ -11,8 +11,7 @@ class NTP {
     }
 
     // Init datagram socket to anyIPv4 and to port 0
-    final RawDatagramSocket _datagramSocket =
-        await RawDatagramSocket.bind(clientAddress, 0, reuseAddress: true);
+    final RawDatagramSocket _datagramSocket = await RawDatagramSocket.bind(clientAddress, 0, reuseAddress: true);
 
     final _NTPMessage _ntpMessage = _NTPMessage();
     final List<int> buffer = _ntpMessage.toByteArray();
@@ -38,7 +37,9 @@ class NTP {
       _datagramSocket.close();
     }
 
-    if (packet == null) return Future<int>.error('Error: Packet is empty!');
+    if (packet == null) {
+      return Future<int>.error('Error: Packet is empty!');
+    }
 
     final int offset = _parseData(packet.data, time);
     return offset;
