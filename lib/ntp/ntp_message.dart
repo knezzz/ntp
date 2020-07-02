@@ -272,7 +272,7 @@ class _NTPMessage {
     /// Converts a double into a 64-bit fixed point
     for (int i = 0; i < 8; i++) {
       /// 2^24, 2^16, 2^8, .. 2^-32
-      final double base = pow(2.0, (3 - i) * 8);
+      final num base = pow(2.0, (3 - i) * 8);
 
       /// Capture byte value
       array[pointer + i] = timestamp ~/ base;
@@ -306,7 +306,9 @@ class _NTPMessage {
   }
 
   String timestampToString(double timestamp) {
-    if (timestamp == 0) return '0';
+    if (timestamp == 0) {
+      return '0';
+    }
 
     final double utc = timestamp - timeToUtc;
     final double ms = utc * 1000.0;
