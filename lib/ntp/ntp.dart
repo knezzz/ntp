@@ -2,7 +2,7 @@ part of ntp;
 
 class NTP {
   /// Return NTP delay in milliseconds
-  static Future<int> getNtpOffset({String lookUpAddress = 'pool.ntp.org', int port = 123, DateTime localTime}) async {
+  static Future<int> getNtpOffset({String lookUpAddress = 'pool.ntp.org', int port = 123, DateTime localTime,Duration timeout}) async {
     final List<InternetAddress> addressArray = await InternetAddress.lookup(lookUpAddress);
 
     InternetAddress clientAddress = InternetAddress.anyIPv4;
@@ -23,14 +23,18 @@ class NTP {
     // Receive packet from socket
     Datagram packet;
 
+    final _receivePacket = (RawSocketEvent event) {
+      if (event == RawSocketEvent.read) {
+        packet = _datagramSocket.receive();
+      }
+      return packet != null;
+    };
     try {
-      await _datagramSocket.firstWhere((RawSocketEvent event) {
-        if (event == RawSocketEvent.read) {
-          packet = _datagramSocket.receive();
-        }
-
-        return packet != null;
-      });
+      if (timeout != null) {
+        await _datagramSocket.timeout(timeout).firstWhere(_receivePacket);
+      } else {
+        await _datagramSocket.firstWhere(_receivePacket);
+      }
     } catch (e) {
       rethrow;
     } finally {
