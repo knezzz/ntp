@@ -97,7 +97,7 @@ class NTP {
 
   /// Utility to resolve DNS over HTTPs (DoH)
   static Future<List<InternetAddress>> _lookupDoH(String host) async {
-    List<InternetAddress> addresses = <InternetAddress>[];
+    final List<InternetAddress> addresses = <InternetAddress>[];
     final httpClient = HttpClient();
     final query = 'https://dns.google/resolve?name=$host&type=a&do=1';
     final request = await httpClient.getUrl(Uri.parse(query));
@@ -105,7 +105,7 @@ class NTP {
     if (response.statusCode == 200) {
       // HTTP OK
       final String jsonContent = await _readResponse(response);
-      Map<String, dynamic> map =
+      final Map<String, dynamic> map =
           json.decode(jsonContent) as Map<String, dynamic>;
       map['Answer'].forEach((Map answer) {
         print(answer.runtimeType);
