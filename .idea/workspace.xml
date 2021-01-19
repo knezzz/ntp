@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b6e4be-7424-483e-809d-8f38cf359ac8" name="Default" comment="" />
+    <list default="true" id="c4b6e4be-7424-483e-809d-8f38cf359ac8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ntp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ntp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ntp/ntp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ntp/ntp.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +55,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -53,6 +62,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554815291514" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -69,7 +79,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter.ntp">
+  <component name="RunManager" selected="Dart Command Line App.Unnamed">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -91,8 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/example/main.dart" />
+      <method v="2" />
+    </configuration>
     <configuration name="ntp" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
-      <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
+      <option name="filePath" value="$PROJECT_DIR$/example/main.dart" />
       <method v="2" />
     </configuration>
     <configuration name="Github" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
@@ -117,6 +131,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Dart Command Line App.Unnamed" />
+      <item itemvalue="Flutter.main.dart" />
       <item itemvalue="Flutter.ntp" />
       <item itemvalue="Flutter Test.tests in ntp_test.dart" />
       <item itemvalue="Flutter Test.test NTP now" />
@@ -130,6 +146,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -194,13 +211,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="500" height="445" key="SwitcherDM" timestamp="1593692376240">
-      <screen x="2560" y="-711" width="1440" height="2560" />
+    <state x="-1256" y="339" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610988720567">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/2560.-711.1440.2560/0.0.2560.1440@2560.-711.1440.2560" timestamp="1593692376240" />
-    <state x="2945" y="-100" width="670" height="676" key="search.everywhere.popup" timestamp="1593692382267">
-      <screen x="2560" y="-711" width="1440" height="2560" />
+    <state x="-1256" y="339" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1610988720567" />
+    <state x="-983" y="486" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1610988719411">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
     </state>
-    <state x="2945" y="-100" width="670" height="676" key="search.everywhere.popup/2560.-711.1440.2560/0.0.2560.1440@2560.-711.1440.2560" timestamp="1593692382267" />
+    <state x="-983" y="486" key="#com.intellij.ide.util.TreeFileChooserDialog/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1610988719411" />
+    <state width="1398" height="787" key="GridCell.Tab.0.bottom" timestamp="1611074368736">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
+    </state>
+    <state width="1398" height="787" key="GridCell.Tab.0.bottom/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1611074368736" />
+    <state width="1398" height="787" key="GridCell.Tab.0.center" timestamp="1611074368734">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
+    </state>
+    <state width="1398" height="787" key="GridCell.Tab.0.center/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1611074368734" />
+    <state width="1398" height="787" key="GridCell.Tab.0.left" timestamp="1611074368733">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
+    </state>
+    <state width="1398" height="787" key="GridCell.Tab.0.left/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1611074368733" />
+    <state width="1398" height="787" key="GridCell.Tab.0.right" timestamp="1611074368735">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
+    </state>
+    <state width="1398" height="787" key="GridCell.Tab.0.right/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1611074368735" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1611074294141">
+      <screen x="-1440" y="-600" width="1440" height="2560" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/-1440.-600.1440.2560/0.0.2560.1440@-1440.-600.1440.2560" timestamp="1611074294141" />
   </component>
 </project>

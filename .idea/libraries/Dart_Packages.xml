@@ -5,7 +5,7 @@
         <entry key="meta">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/meta-1.2.2/lib" />
             </list>
           </value>
         </entry>
@@ -26,7 +26,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/meta-1.2.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/universal_io-1.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/zone_local-0.1.2/lib" />
     </CLASSES>

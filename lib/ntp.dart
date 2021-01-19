@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:universal_io/io.dart';
+import 'package:universal_io/prefer_universal/io.dart';
 
 part 'ntp/ntp.dart';
 part 'ntp/ntp_message.dart';
