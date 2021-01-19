@@ -1,3 +1,9 @@
+## [1.0.8] - 19.01.2021.
+
+- Change DNS resolver to DoH
+- Change default lookupAddress to `time.google.com`
+- You can change lookupAddress on `NTP.now()`
+
 ## [1.0.7] - 02.07.2020.
 
 - Support for IPv6 and IPv4 addresses
