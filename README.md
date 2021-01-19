@@ -12,14 +12,14 @@ wrong result. You can just get clock offset [NTP.getNtpTime] and apply it manual
 to DateTime.now() object when needed (just add offset as milliseconds duration), or you can get
 already formatted [DateTime] object from [NTP.now].
 
-By default lookup address for NTP is: pool.ntp.org
+By default lookup address for NTP is: time.google.com
 
 For example on how to use look in github library repository example/ folder.
 
 ### How it works
 Using int offset from getNtpTime()
 - default localTime is DateTime.now()
-- default lookUpAddress is 'pool.ntp.org'
+- default lookUpAddress is 'time.google.com'
 - default port is 123
 ```dart
   DateTime startDate = new DateTime.now().toLocal();
@@ -36,9 +36,11 @@ Using DateTime from now
 ### NTP Functions
 ```dart
   Future<int> getNtpOffset({
-    String lookUpAddress: 'pool.ntp.org',
+    String lookUpAddress: 'time.google.com',
     int port: 123,
     DateTime localTime,
+    Duration timeout,
+    DnsApiProvider dnsProvider = DnsApiProvider.google,
   });
 ```
 ```dart

@@ -18,7 +18,7 @@ RegExp _ipRegex = RegExp(
 class NTP {
   /// Return NTP delay in milliseconds
   static Future<int> getNtpOffset({
-    String lookUpAddress = 'pool.ntp.org',
+    String lookUpAddress = _defaultLookup,
     int port = 123,
     DateTime localTime,
     Duration timeout,
