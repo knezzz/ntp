@@ -40,7 +40,6 @@ Using DateTime from now
     int port: 123,
     DateTime localTime,
     Duration timeout,
-    DnsApiProvider dnsProvider = DnsApiProvider.google,
   });
 ```
 ```dart

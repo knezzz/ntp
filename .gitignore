@@ -9,5 +9,8 @@ pubspec.lock
 .DS_Store
 .dart_tool/
 
-
-\.idea/
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
