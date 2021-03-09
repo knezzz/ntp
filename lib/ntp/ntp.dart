@@ -1,6 +1,6 @@
 part of ntp;
 
-enum DnsApiProvider { google, cloudflare }
+enum DnsApiProvider { google, cloudflare, dnspod }
 
 ///
 /// Base url for each dns resolver
@@ -8,6 +8,7 @@ enum DnsApiProvider { google, cloudflare }
 const _dnsApiProviderUrl = {
   DnsApiProvider.google: 'https://dns.google.com/resolve',
   DnsApiProvider.cloudflare: 'https://cloudflare-dns.com/dns-query',
+  DnsApiProvider.dnspod: 'https://doh.pub/dns-query',
 };
 
 const _defaultLookup = 'time.google.com';
