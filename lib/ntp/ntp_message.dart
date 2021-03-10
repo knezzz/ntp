@@ -43,7 +43,7 @@ class _NTPMessage {
   ///
   /// If byte array (raw NTP packet) is passed to constructor then the
   /// data is filled from a raw NTP packet.
-  _NTPMessage([List<int> array]) {
+  _NTPMessage([List<int>? array]) {
     if (array != null) {
       _leapIndicator = array[0] >> 6 & 0x3;
       _version = array[0] >> 3 & 0x7;
@@ -207,10 +207,7 @@ class _NTPMessage {
 
   /// This method constructs the data bytes of a raw NTP packet.
   List<int> toByteArray() {
-    final List<int> rawNtp = List<int>(48);
-
-    /// All bytes are set to 0
-    rawNtp.fillRange(0, 48, 0);
+    final List<int> rawNtp = List.filled(48, 0);
 
     rawNtp[0] = _leapIndicator << 6 | _version << 3 | _mode;
     rawNtp[1] = _stratum;

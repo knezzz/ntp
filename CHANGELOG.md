@@ -1,3 +1,8 @@
+## [2.0.0] - 03.03.2021.
+
+- Migrate to null-safety
+- Use default DNS resolver
+
 ## [1.0.8] - 19.01.2021.
 
 - Change DNS resolver to DoH
