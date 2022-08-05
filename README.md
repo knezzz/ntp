@@ -4,7 +4,7 @@
 # NTP
 
 Plugin that allows you to get precise time from Network Time Protocol (NTP).
-It implements whole NTP protocol in dart.
+It implements the whole NTP protocol in dart.
 
 This is useful for time-based events since DateTime.now() returns the time of the device.
 Users sometimes change their internal clock and using DateTime.now() can give
@@ -14,7 +14,7 @@ already formatted [DateTime] object from [NTP.now].
 
 By default lookup address for NTP is: time.google.com
 
-For example on how to use look in github library repository example/ folder.
+For example on how to use look in the github library repository example/ folder.
 
 ### How it works
 Using int offset from getNtpTime()
@@ -45,3 +45,4 @@ Using DateTime from now
 ```dart
   Future<DateTime> now();
 ```
+
